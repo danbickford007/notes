@@ -1,4 +1,5 @@
 alias Note
+alias Utils
 
 defmodule Notes do
 
@@ -23,14 +24,17 @@ defmodule Notes do
   end
 
   def view_notes do
-    notes = """
+    """
       
       Recent notes:
 
     """
-    data = Note.all()
-    IO.puts notes
-    IO.puts elem(data, 1)
+    |> IO.puts
+
+    Note.all
+    |> elem(1)
+    |> Utils.list_json
+    |> IO.puts
     start()
   end
 
