@@ -4,6 +4,10 @@ alias Ui
 
 defmodule Notes do
 
+  def main(args) do
+    start()
+  end
+
   def start do
     Ui.get_choice()
     |> String.replace("\n", "")
@@ -46,5 +50,3 @@ defmodule Notes do
 
 end
 
-
-Notes.start()

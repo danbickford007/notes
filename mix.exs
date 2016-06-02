@@ -5,6 +5,7 @@ defmodule Notes.Mixfile do
     [app: :notes,
      version: "0.0.1",
      elixir: "~> 1.2",
+     escript: [main_module: Notes],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
