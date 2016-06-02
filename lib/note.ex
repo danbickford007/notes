@@ -29,9 +29,24 @@ defmodule Note do
     |> Utils.has_errno
   end
 
-  def remove(name) do
-    IO.gets "Which one to delete?\n"
+  def remove do
+    all_to_enum()
+      |> Ui.print_by_index
+      |> destroy
+  end
 
+  def destroy(name) do
+    all_to_enum
+    |> Enum.each &(bye(name, &1))
+  end
+
+  def bye(name, note) do
+    if name == Map.get(note, "name") do
+      data = List.delete(all_to_enum(), note)
+      |> JSON.encode
+      |> elem(1)
+      
+      File.write! "notes.json", data
   end
 
 end

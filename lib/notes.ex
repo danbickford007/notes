@@ -4,18 +4,8 @@ alias Ui
 
 defmodule Notes do
 
-  def get_choice do
-    IO.gets """
-    
-      1. Create Note
-      2. View Notes
-      exit End program
-
-    """
-  end
-
   def start do
-    get_choice()
+    Ui.get_choice()
     |> String.replace("\n", "")
     |> choose
   end
@@ -34,12 +24,19 @@ defmodule Notes do
     start()
   end
 
+  def remove_note do
+    Note.remove()
+    start()
+  end
+
   def choose(choice) do
     case choice do
       "1" ->
         new_note()
       "2" ->
         view_notes()
+      "3" ->
+        remove_note()
       "exit" ->
         IO.puts "Bye..."
       _ ->
