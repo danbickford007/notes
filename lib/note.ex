@@ -47,6 +47,7 @@ defmodule Note do
       |> elem(1)
       
       File.write! "notes.json", data
+    end
   end
 
 end
