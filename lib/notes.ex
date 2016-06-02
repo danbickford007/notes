@@ -1,5 +1,6 @@
 alias Note
 alias Utils
+alias Ui
 
 defmodule Notes do
 
@@ -14,7 +15,8 @@ defmodule Notes do
   end
 
   def start do
-    String.replace(get_choice(), "\n", "")
+    get_choice()
+    |> String.replace("\n", "")
     |> choose
   end
 
@@ -24,15 +26,9 @@ defmodule Notes do
   end
 
   def view_notes do
-    """
-      
-      Recent notes:
-
-    """
-    |> IO.puts
+    Ui.recent_note_header()
 
     Note.all
-    |> elem(1)
     |> Utils.list_json
     |> IO.puts
     start()

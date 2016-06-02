@@ -1,3 +1,4 @@
+alias Ui
 
 defmodule Utils do
 
@@ -6,20 +7,20 @@ defmodule Utils do
     |> JSON.decode
     |> elem(1)
     |> Enum.reverse
-    |> Enum.each &( print_key_value(elem(&1, 0), elem(&1, 1))) 
+    |> Enum.each &( Ui.print_name_content(&1)) 
   end
 
-  def print_key_value(key, value) do
-    """
-    ****************
-    #{key}
-    _______________
-    #{value}
-    ****************
+  def has_errno({key, value}) do
+    if key == :errno or value == "" do
+      generate_blank()
+    else
+      value 
+    end
+  end
 
-
-    """
-    |> IO.puts
+  def generate_blank do
+    JSON.encode([])
+    |> elem(1)
   end
 
 end
