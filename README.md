@@ -1,22 +1,18 @@
 # Notes
 
-**TODO: Add description**
+## What?
+
+A quick and easy command line utility for making and maintaining notes. 
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+`git clone https://github.com/danbickford007/notes`
 
-  1. Add notes to your list of dependencies in `mix.exs`:
-
-        def deps do
-          [{:notes, "~> 0.0.1"}]
-        end
-
-  2. Ensure notes is started before your application:
-
-        def application do
-          [applications: [:notes]]
-        end
+`./notes`
 
 
-mix escript.build
+#### To build after changes
+
+`mix escript.build`
+
+Feel free to PR with updates.
